@@ -10,25 +10,25 @@ import (
 )
 
 type ChartProps struct {
-	Name                         *string  `default:"-"`  // Name of the container
-	Image                        *string  `default:"-"`  // Image of the container
-	Replicas                     *float64 `default:"2"`  // Number of replicas
-	MaxReplicas                  *float64 `default:"-"`  // Set max number of replica's. This will enable autoscaling containers.
-	AutoScaleTargetCPUPercentage *float64 `default:"50"` // If autoscaling is enabled, this is the CPU percentage it will start to scale
-	PdbMinAvailable              *string  `default:"1"`  // Minimal availble pods when doing maintaince.
+	Name                         *string  `default:"-" mapstructure:"name"`                          // Name of the container
+	Image                        *string  `default:"-" mapstructure:"image"`                         // Image of the container
+	Replicas                     *float64 `default:"2" mapstructure:"replicas"`                      // Number of replicas
+	MaxReplicas                  *float64 `default:"-" mapstructure:"maxReplicas"`                   // Set max number of replica's. This will enable autoscaling containers.
+	AutoScaleTargetCPUPercentage *float64 `default:"50" mapstructure:"autoScaleTargetCPUPercentage"` // If autoscaling is enabled, this is the CPU percentage it will start to scale
+	PdbMinAvailable              *string  `default:"1" mapstructure:"pdbMinAvailable"`               // Minimal availble pods when doing maintaince.
 
-	Ports          []ChartPorts     `default:"[]"`
-	ServiceEntries []ServiceEntries `default:"[]"`
+	Ports          []ChartPorts     `default:"[]" mapstructure:"ports"`
+	ServiceEntries []ServiceEntries `default:"[]" mapstructure:"serviceEntries"`
 }
 
 type ChartPorts struct {
-	Port          *float64 `default:"-"`
-	ContainerPort *float64 `default:"-"`
+	Port          *float64 `default:"-" mapstructure:"port"`
+	ContainerPort *float64 `default:"-" mapstructure:"containerPort"`
 }
 
 type ServiceEntries struct {
-	Name  *string   `default:"-"`
-	Hosts []*string `default:"[]"`
+	Name  *string   `default:"-" mapstructure:"name"`
+	Hosts []*string `default:"[]" mapstructure:"hosts"`
 }
 
 func Chart(scope constructs.Construct, id *string, props *ChartProps) constructs.Construct {

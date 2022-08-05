@@ -1,0 +1,10 @@
+name: kees
+image: pan/piet
+ports:
+- port: 30
+serviceEntries:
+- name: google
+  hosts:
+  - google.nl
+  - google.no
+  - google.com
