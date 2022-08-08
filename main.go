@@ -67,6 +67,7 @@ func Chart(scope constructs.Construct, id *string, props *ChartProps) constructs
 	})
 
 	k8s.NewKubeService(construct, jsii.String("service"), &k8s.KubeServiceProps{
+		Metadata: &metadata,
 		Spec: &k8s.ServiceSpec{
 			Type:     jsii.String("ClusterIP"),
 			Ports:    props.servicePortBuilder(),
@@ -76,6 +77,7 @@ func Chart(scope constructs.Construct, id *string, props *ChartProps) constructs
 
 	if props.MaxReplicas != nil {
 		k8s.NewKubeHorizontalPodAutoscaler(construct, jsii.String("hpa"), &k8s.KubeHorizontalPodAutoscalerProps{
+			Metadata: &metadata,
 			Spec: &k8s.HorizontalPodAutoscalerSpec{
 				MinReplicas:                    props.Replicas,
 				MaxReplicas:                    props.MaxReplicas,
@@ -89,6 +91,7 @@ func Chart(scope constructs.Construct, id *string, props *ChartProps) constructs
 	}
 
 	k8s.NewKubePodDisruptionBudget(construct, jsii.String("pdb"), &k8s.KubePodDisruptionBudgetProps{
+		Metadata: &metadata,
 		Spec: &k8s.PodDisruptionBudgetSpec{
 			MinAvailable: k8s.IntOrString_FromString(props.PdbMinAvailable),
 			Selector:     &k8s.LabelSelector{MatchLabels: &label},
@@ -98,7 +101,8 @@ func Chart(scope constructs.Construct, id *string, props *ChartProps) constructs
 	for _, serviceEntry := range props.ServiceEntries {
 		networkingistioio.NewServiceEntry(construct, serviceEntry.Name, &networkingistioio.ServiceEntryProps{
 			Metadata: &cdk8s.ApiObjectMetadata{
-				Name: serviceEntry.Name,
+				Name:   serviceEntry.Name,
+				Labels: &label,
 			},
 			Spec: &networkingistioio.ServiceEntrySpec{
 				Hosts: &serviceEntry.Hosts,
