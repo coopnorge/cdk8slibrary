@@ -1,4 +1,4 @@
-module example.com/cdk8slibrary
+module github.com/coopnorge/cdk8slibrary
 
 go 1.16
 
