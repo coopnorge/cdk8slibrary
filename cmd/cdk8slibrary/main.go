@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	ck8slibrary "example.com/cdk8slibrary"
+	ck8slibrary "github.com/coopnorge/cdk8slibrary"
 	"github.com/creasty/defaults"
 	"github.com/mitchellh/mapstructure"
 	"gopkg.in/yaml.v2"

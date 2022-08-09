@@ -2,12 +2,12 @@
 package telemetryistioio
 
 import (
-	_init_ "example.com/cdk8slibrary/imports/telemetryistioio/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "github.com/coopnorge/cdk8slibrary/imports/telemetryistioio/jsii"
 
-	"example.com/cdk8slibrary/imports/telemetryistioio/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"github.com/coopnorge/cdk8slibrary/imports/telemetryistioio/internal"
 )
 
 type Telemetry interface {
@@ -121,7 +121,6 @@ func (j *jsiiProxy_Telemetry) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "Telemetry" API object.
 func NewTelemetry(scope constructs.Construct, id *string, props *TelemetryProps) Telemetry {
@@ -364,7 +363,7 @@ type TelemetrySpecMetricsOverridesMatch struct {
 	CustomMetric *string `field:"optional" json:"customMetric" yaml:"customMetric"`
 	// One of the well-known Istio Standard Metrics.
 	Metric TelemetrySpecMetricsOverridesMatchMetric `field:"optional" json:"metric" yaml:"metric"`
-	Mode TelemetrySpecMetricsOverridesMatchMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode   TelemetrySpecMetricsOverridesMatchMode   `field:"optional" json:"mode" yaml:"mode"`
 }
 
 // One of the well-known Istio Standard Metrics.
@@ -441,15 +440,15 @@ type TelemetrySpecTracing struct {
 	// Allows tailoring of behavior to specific conditions.
 	Match *TelemetrySpecTracingMatch `field:"optional" json:"match" yaml:"match"`
 	// Optional.
-	Providers *[]*TelemetrySpecTracingProviders `field:"optional" json:"providers" yaml:"providers"`
-	RandomSamplingPercentage *float64 `field:"optional" json:"randomSamplingPercentage" yaml:"randomSamplingPercentage"`
-	UseRequestIdForTraceSampling *bool `field:"optional" json:"useRequestIdForTraceSampling" yaml:"useRequestIdForTraceSampling"`
+	Providers                    *[]*TelemetrySpecTracingProviders `field:"optional" json:"providers" yaml:"providers"`
+	RandomSamplingPercentage     *float64                          `field:"optional" json:"randomSamplingPercentage" yaml:"randomSamplingPercentage"`
+	UseRequestIdForTraceSampling *bool                             `field:"optional" json:"useRequestIdForTraceSampling" yaml:"useRequestIdForTraceSampling"`
 }
 
 type TelemetrySpecTracingCustomTags struct {
 	// Environment adds the value of an environment variable to each span.
 	Environment *TelemetrySpecTracingCustomTagsEnvironment `field:"optional" json:"environment" yaml:"environment"`
-	Header *TelemetrySpecTracingCustomTagsHeader `field:"optional" json:"header" yaml:"header"`
+	Header      *TelemetrySpecTracingCustomTagsHeader      `field:"optional" json:"header" yaml:"header"`
 	// Literal adds the same, hard-coded value to each span.
 	Literal *TelemetrySpecTracingCustomTagsLiteral `field:"optional" json:"literal" yaml:"literal"`
 }
@@ -495,4 +494,3 @@ type TelemetrySpecTracingProviders struct {
 	// Required.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
-

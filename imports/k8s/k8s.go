@@ -4,12 +4,12 @@ package k8s
 import (
 	"time"
 
-	_init_ "example.com/cdk8slibrary/imports/k8s/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "github.com/coopnorge/cdk8slibrary/imports/k8s/jsii"
 
-	"example.com/cdk8slibrary/imports/k8s/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"github.com/coopnorge/cdk8slibrary/imports/k8s/internal"
 )
 
 // Affinity is a group of affinity scheduling rules.

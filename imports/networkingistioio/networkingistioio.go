@@ -2,12 +2,12 @@
 package networkingistioio
 
 import (
-	_init_ "example.com/cdk8slibrary/imports/networkingistioio/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "github.com/coopnorge/cdk8slibrary/imports/networkingistioio/jsii"
 
-	"example.com/cdk8slibrary/imports/networkingistioio/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"github.com/coopnorge/cdk8slibrary/imports/networkingistioio/internal"
 )
 
 type DestinationRule interface {
@@ -121,7 +121,6 @@ func (j *jsiiProxy_DestinationRule) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "DestinationRule" API object.
 func NewDestinationRule(scope constructs.Construct, id *string, props *DestinationRuleProps) DestinationRule {
@@ -297,9 +296,9 @@ type DestinationRuleSpec struct {
 	// A list of namespaces to which this destination rule is exported.
 	ExportTo *[]*string `field:"optional" json:"exportTo" yaml:"exportTo"`
 	// The name of a service from the service registry.
-	Host *string `field:"optional" json:"host" yaml:"host"`
-	Subsets *[]*DestinationRuleSpecSubsets `field:"optional" json:"subsets" yaml:"subsets"`
-	TrafficPolicy *DestinationRuleSpecTrafficPolicy `field:"optional" json:"trafficPolicy" yaml:"trafficPolicy"`
+	Host             *string                              `field:"optional" json:"host" yaml:"host"`
+	Subsets          *[]*DestinationRuleSpecSubsets       `field:"optional" json:"subsets" yaml:"subsets"`
+	TrafficPolicy    *DestinationRuleSpecTrafficPolicy    `field:"optional" json:"trafficPolicy" yaml:"trafficPolicy"`
 	WorkloadSelector *DestinationRuleSpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
 
@@ -315,12 +314,12 @@ type DestinationRuleSpecSubsets struct {
 type DestinationRuleSpecSubsetsTrafficPolicy struct {
 	ConnectionPool *DestinationRuleSpecSubsetsTrafficPolicyConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleSpecSubsetsTrafficPolicyLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleSpecSubsetsTrafficPolicyLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleSpecSubsetsTrafficPolicyOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Traffic policies specific to individual ports.
 	PortLevelSettings *[]*DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettings `field:"optional" json:"portLevelSettings" yaml:"portLevelSettings"`
 	// TLS related settings for connections to the upstream service.
-	Tls *DestinationRuleSpecSubsetsTrafficPolicyTls `field:"optional" json:"tls" yaml:"tls"`
+	Tls    *DestinationRuleSpecSubsetsTrafficPolicyTls    `field:"optional" json:"tls" yaml:"tls"`
 	Tunnel *DestinationRuleSpecSubsetsTrafficPolicyTunnel `field:"optional" json:"tunnel" yaml:"tunnel"`
 }
 
@@ -334,15 +333,15 @@ type DestinationRuleSpecSubsetsTrafficPolicyConnectionPool struct {
 // HTTP connection pool settings.
 type DestinationRuleSpecSubsetsTrafficPolicyConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleSpecSubsetsTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleSpecSubsetsTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -374,16 +373,16 @@ type DestinationRuleSpecSubsetsTrafficPolicyConnectionPoolTcp struct {
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleSpecSubsetsTrafficPolicyConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleSpecSubsetsTrafficPolicyLoadBalancer struct {
-	ConsistentHash *DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -394,8 +393,8 @@ type DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerConsistentHash struct {
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -431,7 +430,7 @@ type DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerLocalityLbSettingDistrib
 type DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleSpecSubsetsTrafficPolicyLoadBalancerSimple string
@@ -456,14 +455,14 @@ type DestinationRuleSpecSubsetsTrafficPolicyOutlierDetection struct {
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -471,9 +470,9 @@ type DestinationRuleSpecSubsetsTrafficPolicyOutlierDetection struct {
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettings struct {
 	ConnectionPool *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
-	Port *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsPort `field:"optional" json:"port" yaml:"port"`
+	Port             *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsPort             `field:"optional" json:"port" yaml:"port"`
 	// TLS related settings for connections to the upstream service.
 	Tls *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsTls `field:"optional" json:"tls" yaml:"tls"`
 }
@@ -488,15 +487,15 @@ type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPool stru
 // HTTP connection pool settings.
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                                  `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -528,16 +527,16 @@ type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolTcp s
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer struct {
-	ConsistentHash *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -548,8 +547,8 @@ type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerConsist
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -585,7 +584,7 @@ type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerLocalit
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerSimple string
@@ -610,14 +609,14 @@ type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsOutlierDetection st
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -630,14 +629,14 @@ type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsPort struct {
 type DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                                         `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                                         `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                                           `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleSpecSubsetsTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -658,14 +657,14 @@ const (
 type DestinationRuleSpecSubsetsTrafficPolicyTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleSpecSubsetsTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                        `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                        `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                          `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleSpecSubsetsTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -694,12 +693,12 @@ type DestinationRuleSpecSubsetsTrafficPolicyTunnel struct {
 type DestinationRuleSpecTrafficPolicy struct {
 	ConnectionPool *DestinationRuleSpecTrafficPolicyConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleSpecTrafficPolicyLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleSpecTrafficPolicyLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleSpecTrafficPolicyOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Traffic policies specific to individual ports.
 	PortLevelSettings *[]*DestinationRuleSpecTrafficPolicyPortLevelSettings `field:"optional" json:"portLevelSettings" yaml:"portLevelSettings"`
 	// TLS related settings for connections to the upstream service.
-	Tls *DestinationRuleSpecTrafficPolicyTls `field:"optional" json:"tls" yaml:"tls"`
+	Tls    *DestinationRuleSpecTrafficPolicyTls    `field:"optional" json:"tls" yaml:"tls"`
 	Tunnel *DestinationRuleSpecTrafficPolicyTunnel `field:"optional" json:"tunnel" yaml:"tunnel"`
 }
 
@@ -713,15 +712,15 @@ type DestinationRuleSpecTrafficPolicyConnectionPool struct {
 // HTTP connection pool settings.
 type DestinationRuleSpecTrafficPolicyConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleSpecTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleSpecTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                          `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -753,16 +752,16 @@ type DestinationRuleSpecTrafficPolicyConnectionPoolTcp struct {
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleSpecTrafficPolicyConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleSpecTrafficPolicyLoadBalancer struct {
-	ConsistentHash *DestinationRuleSpecTrafficPolicyLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleSpecTrafficPolicyLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleSpecTrafficPolicyLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleSpecTrafficPolicyLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleSpecTrafficPolicyLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -773,8 +772,8 @@ type DestinationRuleSpecTrafficPolicyLoadBalancerConsistentHash struct {
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -810,7 +809,7 @@ type DestinationRuleSpecTrafficPolicyLoadBalancerLocalityLbSettingDistribute str
 type DestinationRuleSpecTrafficPolicyLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleSpecTrafficPolicyLoadBalancerSimple string
@@ -835,14 +834,14 @@ type DestinationRuleSpecTrafficPolicyOutlierDetection struct {
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -850,9 +849,9 @@ type DestinationRuleSpecTrafficPolicyOutlierDetection struct {
 type DestinationRuleSpecTrafficPolicyPortLevelSettings struct {
 	ConnectionPool *DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleSpecTrafficPolicyPortLevelSettingsOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
-	Port *DestinationRuleSpecTrafficPolicyPortLevelSettingsPort `field:"optional" json:"port" yaml:"port"`
+	Port             *DestinationRuleSpecTrafficPolicyPortLevelSettingsPort             `field:"optional" json:"port" yaml:"port"`
 	// TLS related settings for connections to the upstream service.
 	Tls *DestinationRuleSpecTrafficPolicyPortLevelSettingsTls `field:"optional" json:"tls" yaml:"tls"`
 }
@@ -867,15 +866,15 @@ type DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPool struct {
 // HTTP connection pool settings.
 type DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                           `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -907,16 +906,16 @@ type DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPoolTcp struct {
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleSpecTrafficPolicyPortLevelSettingsConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancer struct {
-	ConsistentHash *DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -927,8 +926,8 @@ type DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -964,7 +963,7 @@ type DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSett
 type DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleSpecTrafficPolicyPortLevelSettingsLoadBalancerSimple string
@@ -989,14 +988,14 @@ type DestinationRuleSpecTrafficPolicyPortLevelSettingsOutlierDetection struct {
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -1009,14 +1008,14 @@ type DestinationRuleSpecTrafficPolicyPortLevelSettingsPort struct {
 type DestinationRuleSpecTrafficPolicyPortLevelSettingsTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleSpecTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                                  `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                                  `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                                    `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleSpecTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -1037,14 +1036,14 @@ const (
 type DestinationRuleSpecTrafficPolicyTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleSpecTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                 `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                 `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                   `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleSpecTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -1185,7 +1184,6 @@ func (j *jsiiProxy_DestinationRuleV1Beta1) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "DestinationRuleV1Beta1" API object.
 func NewDestinationRuleV1Beta1(scope constructs.Construct, id *string, props *DestinationRuleV1Beta1Props) DestinationRuleV1Beta1 {
@@ -1361,9 +1359,9 @@ type DestinationRuleV1Beta1Spec struct {
 	// A list of namespaces to which this destination rule is exported.
 	ExportTo *[]*string `field:"optional" json:"exportTo" yaml:"exportTo"`
 	// The name of a service from the service registry.
-	Host *string `field:"optional" json:"host" yaml:"host"`
-	Subsets *[]*DestinationRuleV1Beta1SpecSubsets `field:"optional" json:"subsets" yaml:"subsets"`
-	TrafficPolicy *DestinationRuleV1Beta1SpecTrafficPolicy `field:"optional" json:"trafficPolicy" yaml:"trafficPolicy"`
+	Host             *string                                     `field:"optional" json:"host" yaml:"host"`
+	Subsets          *[]*DestinationRuleV1Beta1SpecSubsets       `field:"optional" json:"subsets" yaml:"subsets"`
+	TrafficPolicy    *DestinationRuleV1Beta1SpecTrafficPolicy    `field:"optional" json:"trafficPolicy" yaml:"trafficPolicy"`
 	WorkloadSelector *DestinationRuleV1Beta1SpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
 
@@ -1379,12 +1377,12 @@ type DestinationRuleV1Beta1SpecSubsets struct {
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicy struct {
 	ConnectionPool *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Traffic policies specific to individual ports.
 	PortLevelSettings *[]*DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettings `field:"optional" json:"portLevelSettings" yaml:"portLevelSettings"`
 	// TLS related settings for connections to the upstream service.
-	Tls *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTls `field:"optional" json:"tls" yaml:"tls"`
+	Tls    *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTls    `field:"optional" json:"tls" yaml:"tls"`
 	Tunnel *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTunnel `field:"optional" json:"tunnel" yaml:"tunnel"`
 }
 
@@ -1398,15 +1396,15 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPool struct {
 // HTTP connection pool settings.
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                        `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -1438,16 +1436,16 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPoolTcp struct {
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancer struct {
-	ConsistentHash *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -1458,8 +1456,8 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerConsistentHash st
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -1495,7 +1493,7 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerLocalityLbSetting
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyLoadBalancerSimple string
@@ -1520,14 +1518,14 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyOutlierDetection struct {
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -1535,9 +1533,9 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyOutlierDetection struct {
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettings struct {
 	ConnectionPool *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
-	Port *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsPort `field:"optional" json:"port" yaml:"port"`
+	Port             *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsPort             `field:"optional" json:"port" yaml:"port"`
 	// TLS related settings for connections to the upstream service.
 	Tls *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsTls `field:"optional" json:"tls" yaml:"tls"`
 }
@@ -1552,15 +1550,15 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPo
 // HTTP connection pool settings.
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                                         `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -1592,16 +1590,16 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPo
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer struct {
-	ConsistentHash *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -1612,8 +1610,8 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -1649,7 +1647,7 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancer
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsLoadBalancerSimple string
@@ -1674,14 +1672,14 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsOutlierDetec
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -1694,14 +1692,14 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsPort struct 
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                                                `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                                                `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                                                  `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleV1Beta1SpecSubsetsTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -1722,14 +1720,14 @@ const (
 type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                               `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                               `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                                 `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -1758,12 +1756,12 @@ type DestinationRuleV1Beta1SpecSubsetsTrafficPolicyTunnel struct {
 type DestinationRuleV1Beta1SpecTrafficPolicy struct {
 	ConnectionPool *DestinationRuleV1Beta1SpecTrafficPolicyConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleV1Beta1SpecTrafficPolicyOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Traffic policies specific to individual ports.
 	PortLevelSettings *[]*DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettings `field:"optional" json:"portLevelSettings" yaml:"portLevelSettings"`
 	// TLS related settings for connections to the upstream service.
-	Tls *DestinationRuleV1Beta1SpecTrafficPolicyTls `field:"optional" json:"tls" yaml:"tls"`
+	Tls    *DestinationRuleV1Beta1SpecTrafficPolicyTls    `field:"optional" json:"tls" yaml:"tls"`
 	Tunnel *DestinationRuleV1Beta1SpecTrafficPolicyTunnel `field:"optional" json:"tunnel" yaml:"tunnel"`
 }
 
@@ -1777,15 +1775,15 @@ type DestinationRuleV1Beta1SpecTrafficPolicyConnectionPool struct {
 // HTTP connection pool settings.
 type DestinationRuleV1Beta1SpecTrafficPolicyConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleV1Beta1SpecTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleV1Beta1SpecTrafficPolicyConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -1817,16 +1815,16 @@ type DestinationRuleV1Beta1SpecTrafficPolicyConnectionPoolTcp struct {
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleV1Beta1SpecTrafficPolicyConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancer struct {
-	ConsistentHash *DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -1837,8 +1835,8 @@ type DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerConsistentHash struct {
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -1874,7 +1872,7 @@ type DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerLocalityLbSettingDistrib
 type DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleV1Beta1SpecTrafficPolicyLoadBalancerSimple string
@@ -1899,14 +1897,14 @@ type DestinationRuleV1Beta1SpecTrafficPolicyOutlierDetection struct {
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -1914,9 +1912,9 @@ type DestinationRuleV1Beta1SpecTrafficPolicyOutlierDetection struct {
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettings struct {
 	ConnectionPool *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// Settings controlling the load balancer algorithms.
-	LoadBalancer *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer     *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancer     `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	OutlierDetection *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsOutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
-	Port *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsPort `field:"optional" json:"port" yaml:"port"`
+	Port             *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsPort             `field:"optional" json:"port" yaml:"port"`
 	// TLS related settings for connections to the upstream service.
 	Tls *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsTls `field:"optional" json:"tls" yaml:"tls"`
 }
@@ -1931,15 +1929,15 @@ type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPool stru
 // HTTP connection pool settings.
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPoolHttp struct {
 	// Specify if http1.1 connection should be upgraded to http2 for the associated destination.
-	H2UpgradePolicy DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
-	Http1MaxPendingRequests *float64 `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
+	H2UpgradePolicy         DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPoolHttpH2UpgradePolicy `field:"optional" json:"h2UpgradePolicy" yaml:"h2UpgradePolicy"`
+	Http1MaxPendingRequests *float64                                                                                  `field:"optional" json:"http1MaxPendingRequests" yaml:"http1MaxPendingRequests"`
 	// Maximum number of active requests to a destination.
 	Http2MaxRequests *float64 `field:"optional" json:"http2MaxRequests" yaml:"http2MaxRequests"`
 	// The idle timeout for upstream connection pool connections.
 	IdleTimeout *string `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Maximum number of requests per connection to a backend.
 	MaxRequestsPerConnection *float64 `field:"optional" json:"maxRequestsPerConnection" yaml:"maxRequestsPerConnection"`
-	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries               *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// If set to true, client protocol will be preserved while initiating connection to backend.
 	UseClientProtocol *bool `field:"optional" json:"useClientProtocol" yaml:"useClientProtocol"`
 }
@@ -1971,16 +1969,16 @@ type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPoolTcp s
 // If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsConnectionPoolTcpTcpKeepalive struct {
 	// The time duration between keep-alive probes.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	Probes *float64 `field:"optional" json:"probes" yaml:"probes"`
-	Time *string `field:"optional" json:"time" yaml:"time"`
+	Interval *string  `field:"optional" json:"interval" yaml:"interval"`
+	Probes   *float64 `field:"optional" json:"probes" yaml:"probes"`
+	Time     *string  `field:"optional" json:"time" yaml:"time"`
 }
 
 // Settings controlling the load balancer algorithms.
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancer struct {
-	ConsistentHash *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash `field:"optional" json:"consistentHash" yaml:"consistentHash"`
+	ConsistentHash    *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerConsistentHash    `field:"optional" json:"consistentHash" yaml:"consistentHash"`
 	LocalityLbSetting *DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSetting `field:"optional" json:"localityLbSetting" yaml:"localityLbSetting"`
-	Simple DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerSimple `field:"optional" json:"simple" yaml:"simple"`
+	Simple            DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerSimple             `field:"optional" json:"simple" yaml:"simple"`
 	// Represents the warmup duration of Service.
 	WarmupDurationSecs *string `field:"optional" json:"warmupDurationSecs" yaml:"warmupDurationSecs"`
 }
@@ -1991,8 +1989,8 @@ type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerConsist
 	// Hash based on a specific HTTP header.
 	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// Hash based on a specific HTTP query parameter.
-	HttpQueryParameterName *string `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
-	MinimumRingSize *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
+	HttpQueryParameterName *string  `field:"optional" json:"httpQueryParameterName" yaml:"httpQueryParameterName"`
+	MinimumRingSize        *float64 `field:"optional" json:"minimumRingSize" yaml:"minimumRingSize"`
 	// Hash based on the source IP address.
 	UseSourceIp *bool `field:"optional" json:"useSourceIp" yaml:"useSourceIp"`
 }
@@ -2028,7 +2026,7 @@ type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerLocalit
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerLocalityLbSettingFailover struct {
 	// Originating region.
 	From *string `field:"optional" json:"from" yaml:"from"`
-	To *string `field:"optional" json:"to" yaml:"to"`
+	To   *string `field:"optional" json:"to" yaml:"to"`
 }
 
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsLoadBalancerSimple string
@@ -2053,14 +2051,14 @@ type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsOutlierDetection st
 	BaseEjectionTime *string `field:"optional" json:"baseEjectionTime" yaml:"baseEjectionTime"`
 	// Number of 5xx errors before a host is ejected from the connection pool.
 	Consecutive5XxErrors *float64 `field:"optional" json:"consecutive5XxErrors" yaml:"consecutive5XxErrors"`
-	ConsecutiveErrors *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
+	ConsecutiveErrors    *float64 `field:"optional" json:"consecutiveErrors" yaml:"consecutiveErrors"`
 	// Number of gateway errors before a host is ejected from the connection pool.
-	ConsecutiveGatewayErrors *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
+	ConsecutiveGatewayErrors       *float64 `field:"optional" json:"consecutiveGatewayErrors" yaml:"consecutiveGatewayErrors"`
 	ConsecutiveLocalOriginFailures *float64 `field:"optional" json:"consecutiveLocalOriginFailures" yaml:"consecutiveLocalOriginFailures"`
 	// Time interval between ejection sweep analysis.
-	Interval *string `field:"optional" json:"interval" yaml:"interval"`
+	Interval           *string  `field:"optional" json:"interval" yaml:"interval"`
 	MaxEjectionPercent *float64 `field:"optional" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
-	MinHealthPercent *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
+	MinHealthPercent   *float64 `field:"optional" json:"minHealthPercent" yaml:"minHealthPercent"`
 	// Determines whether to distinguish local origin failures from external errors.
 	SplitExternalLocalOriginErrors *bool `field:"optional" json:"splitExternalLocalOriginErrors" yaml:"splitExternalLocalOriginErrors"`
 }
@@ -2073,14 +2071,14 @@ type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsPort struct {
 type DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                                         `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                                         `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                                           `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleV1Beta1SpecTrafficPolicyPortLevelSettingsTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -2101,14 +2099,14 @@ const (
 type DestinationRuleV1Beta1SpecTrafficPolicyTls struct {
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// REQUIRED if mode is `MUTUAL`.
-	ClientCertificate *string `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	InsecureSkipVerify *bool `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
-	Mode DestinationRuleV1Beta1SpecTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	ClientCertificate  *string                                        `field:"optional" json:"clientCertificate" yaml:"clientCertificate"`
+	CredentialName     *string                                        `field:"optional" json:"credentialName" yaml:"credentialName"`
+	InsecureSkipVerify *bool                                          `field:"optional" json:"insecureSkipVerify" yaml:"insecureSkipVerify"`
+	Mode               DestinationRuleV1Beta1SpecTrafficPolicyTlsMode `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// SNI string to present to the server during TLS handshake.
-	Sni *string `field:"optional" json:"sni" yaml:"sni"`
+	Sni             *string    `field:"optional" json:"sni" yaml:"sni"`
 	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 }
 
@@ -2249,7 +2247,6 @@ func (j *jsiiProxy_EnvoyFilter) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "EnvoyFilter" API object.
 func NewEnvoyFilter(scope constructs.Construct, id *string, props *EnvoyFilterProps) EnvoyFilter {
@@ -2425,7 +2422,7 @@ type EnvoyFilterSpec struct {
 	// One or more patches with match conditions.
 	ConfigPatches *[]*EnvoyFilterSpecConfigPatches `field:"optional" json:"configPatches" yaml:"configPatches"`
 	// Priority defines the order in which patch sets are applied within a context.
-	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
+	Priority         *float64                         `field:"optional" json:"priority" yaml:"priority"`
 	WorkloadSelector *EnvoyFilterSpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
 
@@ -2509,8 +2506,8 @@ type EnvoyFilterSpecConfigPatchesMatchListener struct {
 	// Match a specific filter chain in a listener.
 	FilterChain *EnvoyFilterSpecConfigPatchesMatchListenerFilterChain `field:"optional" json:"filterChain" yaml:"filterChain"`
 	// Match a specific listener by its name.
-	Name *string `field:"optional" json:"name" yaml:"name"`
-	PortName *string `field:"optional" json:"portName" yaml:"portName"`
+	Name       *string  `field:"optional" json:"name" yaml:"name"`
+	PortName   *string  `field:"optional" json:"portName" yaml:"portName"`
 	PortNumber *float64 `field:"optional" json:"portNumber" yaml:"portNumber"`
 }
 
@@ -2533,7 +2530,7 @@ type EnvoyFilterSpecConfigPatchesMatchListenerFilterChain struct {
 // The name of a specific filter to apply the patch to.
 type EnvoyFilterSpecConfigPatchesMatchListenerFilterChainFilter struct {
 	// The filter name to match on.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name      *string                                                              `field:"optional" json:"name" yaml:"name"`
 	SubFilter *EnvoyFilterSpecConfigPatchesMatchListenerFilterChainFilterSubFilter `field:"optional" json:"subFilter" yaml:"subFilter"`
 }
 
@@ -2544,8 +2541,8 @@ type EnvoyFilterSpecConfigPatchesMatchListenerFilterChainFilterSubFilter struct 
 
 // Match on properties associated with a proxy.
 type EnvoyFilterSpecConfigPatchesMatchProxy struct {
-	Metadata *map[string]*string `field:"optional" json:"metadata" yaml:"metadata"`
-	ProxyVersion *string `field:"optional" json:"proxyVersion" yaml:"proxyVersion"`
+	Metadata     *map[string]*string `field:"optional" json:"metadata" yaml:"metadata"`
+	ProxyVersion *string             `field:"optional" json:"proxyVersion" yaml:"proxyVersion"`
 }
 
 // Match on envoy HTTP route configuration attributes.
@@ -2554,9 +2551,9 @@ type EnvoyFilterSpecConfigPatchesMatchRouteConfiguration struct {
 	// Route configuration name to match on.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Applicable only for GATEWAY context.
-	PortName *string `field:"optional" json:"portName" yaml:"portName"`
-	PortNumber *float64 `field:"optional" json:"portNumber" yaml:"portNumber"`
-	Vhost *EnvoyFilterSpecConfigPatchesMatchRouteConfigurationVhost `field:"optional" json:"vhost" yaml:"vhost"`
+	PortName   *string                                                   `field:"optional" json:"portName" yaml:"portName"`
+	PortNumber *float64                                                  `field:"optional" json:"portNumber" yaml:"portNumber"`
+	Vhost      *EnvoyFilterSpecConfigPatchesMatchRouteConfigurationVhost `field:"optional" json:"vhost" yaml:"vhost"`
 }
 
 type EnvoyFilterSpecConfigPatchesMatchRouteConfigurationVhost struct {
@@ -2569,7 +2566,7 @@ type EnvoyFilterSpecConfigPatchesMatchRouteConfigurationVhost struct {
 type EnvoyFilterSpecConfigPatchesMatchRouteConfigurationVhostRoute struct {
 	// Match a route with specific action type.
 	Action EnvoyFilterSpecConfigPatchesMatchRouteConfigurationVhostRouteAction `field:"optional" json:"action" yaml:"action"`
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name   *string                                                             `field:"optional" json:"name" yaml:"name"`
 }
 
 // Match a route with specific action type.
@@ -2748,7 +2745,6 @@ func (j *jsiiProxy_Gateway) Node() constructs.Node {
 	return returns
 }
 
-
 // Defines a "Gateway" API object.
 func NewGateway(scope constructs.Construct, id *string, props *GatewayProps) Gateway {
 	_init_.Initialize()
@@ -2926,12 +2922,12 @@ type GatewaySpec struct {
 }
 
 type GatewaySpecServers struct {
-	Bind *string `field:"optional" json:"bind" yaml:"bind"`
+	Bind            *string `field:"optional" json:"bind" yaml:"bind"`
 	DefaultEndpoint *string `field:"optional" json:"defaultEndpoint" yaml:"defaultEndpoint"`
 	// One or more hosts exposed by this gateway.
 	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
 	// An optional name of the server, when set must be unique across all servers.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string                 `field:"optional" json:"name" yaml:"name"`
 	Port *GatewaySpecServersPort `field:"optional" json:"port" yaml:"port"`
 	// Set of TLS related options that govern the server's behavior.
 	Tls *GatewaySpecServersTls `field:"optional" json:"tls" yaml:"tls"`
@@ -2943,7 +2939,7 @@ type GatewaySpecServersPort struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
@@ -2952,19 +2948,19 @@ type GatewaySpecServersTls struct {
 	// REQUIRED if mode is `MUTUAL`.
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// Optional: If specified, only support the specified cipher list.
-	CipherSuites *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	HttpsRedirect *bool `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
+	CipherSuites   *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
+	CredentialName *string    `field:"optional" json:"credentialName" yaml:"credentialName"`
+	HttpsRedirect  *bool      `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
 	// Optional: Maximum TLS protocol version.
 	MaxProtocolVersion GatewaySpecServersTlsMaxProtocolVersion `field:"optional" json:"maxProtocolVersion" yaml:"maxProtocolVersion"`
 	// Optional: Minimum TLS protocol version.
 	MinProtocolVersion GatewaySpecServersTlsMinProtocolVersion `field:"optional" json:"minProtocolVersion" yaml:"minProtocolVersion"`
-	Mode GatewaySpecServersTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode               GatewaySpecServersTlsMode               `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
-	ServerCertificate *string `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
-	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
+	ServerCertificate     *string    `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
+	SubjectAltNames       *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 	VerifyCertificateHash *[]*string `field:"optional" json:"verifyCertificateHash" yaml:"verifyCertificateHash"`
 	VerifyCertificateSpki *[]*string `field:"optional" json:"verifyCertificateSpki" yaml:"verifyCertificateSpki"`
 }
@@ -3127,7 +3123,6 @@ func (j *jsiiProxy_GatewayV1Beta1) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "GatewayV1Beta1" API object.
 func NewGatewayV1Beta1(scope constructs.Construct, id *string, props *GatewayV1Beta1Props) GatewayV1Beta1 {
@@ -3306,12 +3301,12 @@ type GatewayV1Beta1Spec struct {
 }
 
 type GatewayV1Beta1SpecServers struct {
-	Bind *string `field:"optional" json:"bind" yaml:"bind"`
+	Bind            *string `field:"optional" json:"bind" yaml:"bind"`
 	DefaultEndpoint *string `field:"optional" json:"defaultEndpoint" yaml:"defaultEndpoint"`
 	// One or more hosts exposed by this gateway.
 	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
 	// An optional name of the server, when set must be unique across all servers.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string                        `field:"optional" json:"name" yaml:"name"`
 	Port *GatewayV1Beta1SpecServersPort `field:"optional" json:"port" yaml:"port"`
 	// Set of TLS related options that govern the server's behavior.
 	Tls *GatewayV1Beta1SpecServersTls `field:"optional" json:"tls" yaml:"tls"`
@@ -3323,7 +3318,7 @@ type GatewayV1Beta1SpecServersPort struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
@@ -3332,19 +3327,19 @@ type GatewayV1Beta1SpecServersTls struct {
 	// REQUIRED if mode is `MUTUAL`.
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// Optional: If specified, only support the specified cipher list.
-	CipherSuites *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	HttpsRedirect *bool `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
+	CipherSuites   *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
+	CredentialName *string    `field:"optional" json:"credentialName" yaml:"credentialName"`
+	HttpsRedirect  *bool      `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
 	// Optional: Maximum TLS protocol version.
 	MaxProtocolVersion GatewayV1Beta1SpecServersTlsMaxProtocolVersion `field:"optional" json:"maxProtocolVersion" yaml:"maxProtocolVersion"`
 	// Optional: Minimum TLS protocol version.
 	MinProtocolVersion GatewayV1Beta1SpecServersTlsMinProtocolVersion `field:"optional" json:"minProtocolVersion" yaml:"minProtocolVersion"`
-	Mode GatewayV1Beta1SpecServersTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode               GatewayV1Beta1SpecServersTlsMode               `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
-	ServerCertificate *string `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
-	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
+	ServerCertificate     *string    `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
+	SubjectAltNames       *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 	VerifyCertificateHash *[]*string `field:"optional" json:"verifyCertificateHash" yaml:"verifyCertificateHash"`
 	VerifyCertificateSpki *[]*string `field:"optional" json:"verifyCertificateSpki" yaml:"verifyCertificateSpki"`
 }
@@ -3507,7 +3502,6 @@ func (j *jsiiProxy_ProxyConfig) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "ProxyConfig" API object.
 func NewProxyConfig(scope constructs.Construct, id *string, props *ProxyConfigProps) ProxyConfig {
@@ -3813,7 +3807,6 @@ func (j *jsiiProxy_ServiceEntry) Node() constructs.Node {
 	return returns
 }
 
-
 // Defines a "ServiceEntry" API object.
 func NewServiceEntry(scope constructs.Construct, id *string, props *ServiceEntryProps) ServiceEntry {
 	_init_.Initialize()
@@ -3992,13 +3985,13 @@ type ServiceEntrySpec struct {
 	// A list of namespaces to which this service is exported.
 	ExportTo *[]*string `field:"optional" json:"exportTo" yaml:"exportTo"`
 	// The hosts associated with the ServiceEntry.
-	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
+	Hosts    *[]*string               `field:"optional" json:"hosts" yaml:"hosts"`
 	Location ServiceEntrySpecLocation `field:"optional" json:"location" yaml:"location"`
 	// The ports associated with the external service.
 	Ports *[]*ServiceEntrySpecPorts `field:"optional" json:"ports" yaml:"ports"`
 	// Service discovery mode for the hosts.
-	Resolution ServiceEntrySpecResolution `field:"optional" json:"resolution" yaml:"resolution"`
-	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
+	Resolution      ServiceEntrySpecResolution `field:"optional" json:"resolution" yaml:"resolution"`
+	SubjectAltNames *[]*string                 `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 	// Applicable only for MESH_INTERNAL services.
 	WorkloadSelector *ServiceEntrySpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
@@ -4009,10 +4002,10 @@ type ServiceEntrySpecEndpoints struct {
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The locality associated with the endpoint.
 	Locality *string `field:"optional" json:"locality" yaml:"locality"`
-	Network *string `field:"optional" json:"network" yaml:"network"`
+	Network  *string `field:"optional" json:"network" yaml:"network"`
 	// Set of ports associated with the endpoint.
-	Ports *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
-	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
+	Ports          *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
+	ServiceAccount *string              `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// The load balancing weight associated with the endpoint.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
@@ -4032,7 +4025,7 @@ type ServiceEntrySpecPorts struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
@@ -4166,7 +4159,6 @@ func (j *jsiiProxy_ServiceEntryV1Beta1) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "ServiceEntryV1Beta1" API object.
 func NewServiceEntryV1Beta1(scope constructs.Construct, id *string, props *ServiceEntryV1Beta1Props) ServiceEntryV1Beta1 {
@@ -4346,13 +4338,13 @@ type ServiceEntryV1Beta1Spec struct {
 	// A list of namespaces to which this service is exported.
 	ExportTo *[]*string `field:"optional" json:"exportTo" yaml:"exportTo"`
 	// The hosts associated with the ServiceEntry.
-	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
+	Hosts    *[]*string                      `field:"optional" json:"hosts" yaml:"hosts"`
 	Location ServiceEntryV1Beta1SpecLocation `field:"optional" json:"location" yaml:"location"`
 	// The ports associated with the external service.
 	Ports *[]*ServiceEntryV1Beta1SpecPorts `field:"optional" json:"ports" yaml:"ports"`
 	// Service discovery mode for the hosts.
-	Resolution ServiceEntryV1Beta1SpecResolution `field:"optional" json:"resolution" yaml:"resolution"`
-	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
+	Resolution      ServiceEntryV1Beta1SpecResolution `field:"optional" json:"resolution" yaml:"resolution"`
+	SubjectAltNames *[]*string                        `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 	// Applicable only for MESH_INTERNAL services.
 	WorkloadSelector *ServiceEntryV1Beta1SpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
@@ -4363,10 +4355,10 @@ type ServiceEntryV1Beta1SpecEndpoints struct {
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The locality associated with the endpoint.
 	Locality *string `field:"optional" json:"locality" yaml:"locality"`
-	Network *string `field:"optional" json:"network" yaml:"network"`
+	Network  *string `field:"optional" json:"network" yaml:"network"`
 	// Set of ports associated with the endpoint.
-	Ports *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
-	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
+	Ports          *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
+	ServiceAccount *string              `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// The load balancing weight associated with the endpoint.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
@@ -4386,7 +4378,7 @@ type ServiceEntryV1Beta1SpecPorts struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
@@ -4520,7 +4512,6 @@ func (j *jsiiProxy_Sidecar) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "Sidecar" API object.
 func NewSidecar(scope constructs.Construct, id *string, props *SidecarProps) Sidecar {
@@ -4693,17 +4684,17 @@ type SidecarProps struct {
 //
 // See more details at: https://istio.io/docs/reference/config/networking/sidecar.html
 type SidecarSpec struct {
-	Egress *[]*SidecarSpecEgress `field:"optional" json:"egress" yaml:"egress"`
+	Egress  *[]*SidecarSpecEgress  `field:"optional" json:"egress" yaml:"egress"`
 	Ingress *[]*SidecarSpecIngress `field:"optional" json:"ingress" yaml:"ingress"`
 	// Configuration for the outbound traffic policy.
 	OutboundTrafficPolicy *SidecarSpecOutboundTrafficPolicy `field:"optional" json:"outboundTrafficPolicy" yaml:"outboundTrafficPolicy"`
-	WorkloadSelector *SidecarSpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
+	WorkloadSelector      *SidecarSpecWorkloadSelector      `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
 
 type SidecarSpecEgress struct {
-	Bind *string `field:"optional" json:"bind" yaml:"bind"`
+	Bind        *string                      `field:"optional" json:"bind" yaml:"bind"`
 	CaptureMode SidecarSpecEgressCaptureMode `field:"optional" json:"captureMode" yaml:"captureMode"`
-	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
+	Hosts       *[]*string                   `field:"optional" json:"hosts" yaml:"hosts"`
 	// The port associated with the listener.
 	Port *SidecarSpecEgressPort `field:"optional" json:"port" yaml:"port"`
 }
@@ -4726,18 +4717,18 @@ type SidecarSpecEgressPort struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
 type SidecarSpecIngress struct {
 	// The IP to which the listener should be bound.
-	Bind *string `field:"optional" json:"bind" yaml:"bind"`
-	CaptureMode SidecarSpecIngressCaptureMode `field:"optional" json:"captureMode" yaml:"captureMode"`
-	DefaultEndpoint *string `field:"optional" json:"defaultEndpoint" yaml:"defaultEndpoint"`
+	Bind            *string                       `field:"optional" json:"bind" yaml:"bind"`
+	CaptureMode     SidecarSpecIngressCaptureMode `field:"optional" json:"captureMode" yaml:"captureMode"`
+	DefaultEndpoint *string                       `field:"optional" json:"defaultEndpoint" yaml:"defaultEndpoint"`
 	// The port associated with the listener.
 	Port *SidecarSpecIngressPort `field:"optional" json:"port" yaml:"port"`
-	Tls *SidecarSpecIngressTls `field:"optional" json:"tls" yaml:"tls"`
+	Tls  *SidecarSpecIngressTls  `field:"optional" json:"tls" yaml:"tls"`
 }
 
 type SidecarSpecIngressCaptureMode string
@@ -4758,7 +4749,7 @@ type SidecarSpecIngressPort struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
@@ -4766,19 +4757,19 @@ type SidecarSpecIngressTls struct {
 	// REQUIRED if mode is `MUTUAL`.
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// Optional: If specified, only support the specified cipher list.
-	CipherSuites *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	HttpsRedirect *bool `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
+	CipherSuites   *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
+	CredentialName *string    `field:"optional" json:"credentialName" yaml:"credentialName"`
+	HttpsRedirect  *bool      `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
 	// Optional: Maximum TLS protocol version.
 	MaxProtocolVersion SidecarSpecIngressTlsMaxProtocolVersion `field:"optional" json:"maxProtocolVersion" yaml:"maxProtocolVersion"`
 	// Optional: Minimum TLS protocol version.
 	MinProtocolVersion SidecarSpecIngressTlsMinProtocolVersion `field:"optional" json:"minProtocolVersion" yaml:"minProtocolVersion"`
-	Mode SidecarSpecIngressTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode               SidecarSpecIngressTlsMode               `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
-	ServerCertificate *string `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
-	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
+	ServerCertificate     *string    `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
+	SubjectAltNames       *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 	VerifyCertificateHash *[]*string `field:"optional" json:"verifyCertificateHash" yaml:"verifyCertificateHash"`
 	VerifyCertificateSpki *[]*string `field:"optional" json:"verifyCertificateSpki" yaml:"verifyCertificateSpki"`
 }
@@ -4833,7 +4824,7 @@ const (
 // Configuration for the outbound traffic policy.
 type SidecarSpecOutboundTrafficPolicy struct {
 	EgressProxy *SidecarSpecOutboundTrafficPolicyEgressProxy `field:"optional" json:"egressProxy" yaml:"egressProxy"`
-	Mode SidecarSpecOutboundTrafficPolicyMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode        SidecarSpecOutboundTrafficPolicyMode         `field:"optional" json:"mode" yaml:"mode"`
 }
 
 type SidecarSpecOutboundTrafficPolicyEgressProxy struct {
@@ -4974,7 +4965,6 @@ func (j *jsiiProxy_SidecarV1Beta1) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "SidecarV1Beta1" API object.
 func NewSidecarV1Beta1(scope constructs.Construct, id *string, props *SidecarV1Beta1Props) SidecarV1Beta1 {
@@ -5147,17 +5137,17 @@ type SidecarV1Beta1Props struct {
 //
 // See more details at: https://istio.io/docs/reference/config/networking/sidecar.html
 type SidecarV1Beta1Spec struct {
-	Egress *[]*SidecarV1Beta1SpecEgress `field:"optional" json:"egress" yaml:"egress"`
+	Egress  *[]*SidecarV1Beta1SpecEgress  `field:"optional" json:"egress" yaml:"egress"`
 	Ingress *[]*SidecarV1Beta1SpecIngress `field:"optional" json:"ingress" yaml:"ingress"`
 	// Configuration for the outbound traffic policy.
 	OutboundTrafficPolicy *SidecarV1Beta1SpecOutboundTrafficPolicy `field:"optional" json:"outboundTrafficPolicy" yaml:"outboundTrafficPolicy"`
-	WorkloadSelector *SidecarV1Beta1SpecWorkloadSelector `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
+	WorkloadSelector      *SidecarV1Beta1SpecWorkloadSelector      `field:"optional" json:"workloadSelector" yaml:"workloadSelector"`
 }
 
 type SidecarV1Beta1SpecEgress struct {
-	Bind *string `field:"optional" json:"bind" yaml:"bind"`
+	Bind        *string                             `field:"optional" json:"bind" yaml:"bind"`
 	CaptureMode SidecarV1Beta1SpecEgressCaptureMode `field:"optional" json:"captureMode" yaml:"captureMode"`
-	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
+	Hosts       *[]*string                          `field:"optional" json:"hosts" yaml:"hosts"`
 	// The port associated with the listener.
 	Port *SidecarV1Beta1SpecEgressPort `field:"optional" json:"port" yaml:"port"`
 }
@@ -5180,18 +5170,18 @@ type SidecarV1Beta1SpecEgressPort struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
 type SidecarV1Beta1SpecIngress struct {
 	// The IP to which the listener should be bound.
-	Bind *string `field:"optional" json:"bind" yaml:"bind"`
-	CaptureMode SidecarV1Beta1SpecIngressCaptureMode `field:"optional" json:"captureMode" yaml:"captureMode"`
-	DefaultEndpoint *string `field:"optional" json:"defaultEndpoint" yaml:"defaultEndpoint"`
+	Bind            *string                              `field:"optional" json:"bind" yaml:"bind"`
+	CaptureMode     SidecarV1Beta1SpecIngressCaptureMode `field:"optional" json:"captureMode" yaml:"captureMode"`
+	DefaultEndpoint *string                              `field:"optional" json:"defaultEndpoint" yaml:"defaultEndpoint"`
 	// The port associated with the listener.
 	Port *SidecarV1Beta1SpecIngressPort `field:"optional" json:"port" yaml:"port"`
-	Tls *SidecarV1Beta1SpecIngressTls `field:"optional" json:"tls" yaml:"tls"`
+	Tls  *SidecarV1Beta1SpecIngressTls  `field:"optional" json:"tls" yaml:"tls"`
 }
 
 type SidecarV1Beta1SpecIngressCaptureMode string
@@ -5212,7 +5202,7 @@ type SidecarV1Beta1SpecIngressPort struct {
 	// A valid non-negative integer port number.
 	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The protocol exposed on the port.
-	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	Protocol   *string  `field:"optional" json:"protocol" yaml:"protocol"`
 	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
@@ -5220,19 +5210,19 @@ type SidecarV1Beta1SpecIngressTls struct {
 	// REQUIRED if mode is `MUTUAL`.
 	CaCertificates *string `field:"optional" json:"caCertificates" yaml:"caCertificates"`
 	// Optional: If specified, only support the specified cipher list.
-	CipherSuites *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
-	CredentialName *string `field:"optional" json:"credentialName" yaml:"credentialName"`
-	HttpsRedirect *bool `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
+	CipherSuites   *[]*string `field:"optional" json:"cipherSuites" yaml:"cipherSuites"`
+	CredentialName *string    `field:"optional" json:"credentialName" yaml:"credentialName"`
+	HttpsRedirect  *bool      `field:"optional" json:"httpsRedirect" yaml:"httpsRedirect"`
 	// Optional: Maximum TLS protocol version.
 	MaxProtocolVersion SidecarV1Beta1SpecIngressTlsMaxProtocolVersion `field:"optional" json:"maxProtocolVersion" yaml:"maxProtocolVersion"`
 	// Optional: Minimum TLS protocol version.
 	MinProtocolVersion SidecarV1Beta1SpecIngressTlsMinProtocolVersion `field:"optional" json:"minProtocolVersion" yaml:"minProtocolVersion"`
-	Mode SidecarV1Beta1SpecIngressTlsMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode               SidecarV1Beta1SpecIngressTlsMode               `field:"optional" json:"mode" yaml:"mode"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// REQUIRED if mode is `SIMPLE` or `MUTUAL`.
-	ServerCertificate *string `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
-	SubjectAltNames *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
+	ServerCertificate     *string    `field:"optional" json:"serverCertificate" yaml:"serverCertificate"`
+	SubjectAltNames       *[]*string `field:"optional" json:"subjectAltNames" yaml:"subjectAltNames"`
 	VerifyCertificateHash *[]*string `field:"optional" json:"verifyCertificateHash" yaml:"verifyCertificateHash"`
 	VerifyCertificateSpki *[]*string `field:"optional" json:"verifyCertificateSpki" yaml:"verifyCertificateSpki"`
 }
@@ -5287,7 +5277,7 @@ const (
 // Configuration for the outbound traffic policy.
 type SidecarV1Beta1SpecOutboundTrafficPolicy struct {
 	EgressProxy *SidecarV1Beta1SpecOutboundTrafficPolicyEgressProxy `field:"optional" json:"egressProxy" yaml:"egressProxy"`
-	Mode SidecarV1Beta1SpecOutboundTrafficPolicyMode `field:"optional" json:"mode" yaml:"mode"`
+	Mode        SidecarV1Beta1SpecOutboundTrafficPolicyMode         `field:"optional" json:"mode" yaml:"mode"`
 }
 
 type SidecarV1Beta1SpecOutboundTrafficPolicyEgressProxy struct {
@@ -5428,7 +5418,6 @@ func (j *jsiiProxy_VirtualService) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "VirtualService" API object.
 func NewVirtualService(scope constructs.Construct, id *string, props *VirtualServiceProps) VirtualService {
@@ -5617,14 +5606,14 @@ type VirtualServiceSpec struct {
 type VirtualServiceSpecHttp struct {
 	// Cross-Origin Resource Sharing policy (CORS).
 	CorsPolicy *VirtualServiceSpecHttpCorsPolicy `field:"optional" json:"corsPolicy" yaml:"corsPolicy"`
-	Delegate *VirtualServiceSpecHttpDelegate `field:"optional" json:"delegate" yaml:"delegate"`
+	Delegate   *VirtualServiceSpecHttpDelegate   `field:"optional" json:"delegate" yaml:"delegate"`
 	// A HTTP rule can either return a direct_response, redirect or forward (default) traffic.
 	DirectResponse *VirtualServiceSpecHttpDirectResponse `field:"optional" json:"directResponse" yaml:"directResponse"`
 	// Fault injection policy to apply on HTTP traffic at the client side.
-	Fault *VirtualServiceSpecHttpFault `field:"optional" json:"fault" yaml:"fault"`
-	Headers *VirtualServiceSpecHttpHeaders `field:"optional" json:"headers" yaml:"headers"`
-	Match *[]*VirtualServiceSpecHttpMatch `field:"optional" json:"match" yaml:"match"`
-	Mirror *VirtualServiceSpecHttpMirror `field:"optional" json:"mirror" yaml:"mirror"`
+	Fault   *VirtualServiceSpecHttpFault    `field:"optional" json:"fault" yaml:"fault"`
+	Headers *VirtualServiceSpecHttpHeaders  `field:"optional" json:"headers" yaml:"headers"`
+	Match   *[]*VirtualServiceSpecHttpMatch `field:"optional" json:"match" yaml:"match"`
+	Mirror  *VirtualServiceSpecHttpMirror   `field:"optional" json:"mirror" yaml:"mirror"`
 	// Percentage of the traffic to be mirrored by the `mirror` field.
 	MirrorPercent *float64 `field:"optional" json:"mirrorPercent" yaml:"mirrorPercent"`
 	// Percentage of the traffic to be mirrored by the `mirror` field.
@@ -5645,20 +5634,20 @@ type VirtualServiceSpecHttp struct {
 
 // Cross-Origin Resource Sharing policy (CORS).
 type VirtualServiceSpecHttpCorsPolicy struct {
-	AllowCredentials *bool `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
-	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
+	AllowCredentials *bool      `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
+	AllowHeaders     *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// List of HTTP methods allowed to access the resource.
 	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// The list of origins that are allowed to perform CORS requests.
 	AllowOrigin *[]*string `field:"optional" json:"allowOrigin" yaml:"allowOrigin"`
 	// String patterns that match allowed origins.
-	AllowOrigins *[]*VirtualServiceSpecHttpCorsPolicyAllowOrigins `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
-	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
-	MaxAge *string `field:"optional" json:"maxAge" yaml:"maxAge"`
+	AllowOrigins  *[]*VirtualServiceSpecHttpCorsPolicyAllowOrigins `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
+	ExposeHeaders *[]*string                                       `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
+	MaxAge        *string                                          `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 type VirtualServiceSpecHttpCorsPolicyAllowOrigins struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
@@ -5682,7 +5671,7 @@ type VirtualServiceSpecHttpDirectResponse struct {
 // Specifies the content of the response body.
 type VirtualServiceSpecHttpDirectResponseBody struct {
 	// response body as base64 encoded bytes.
-	Bytes *string `field:"optional" json:"bytes" yaml:"bytes"`
+	Bytes  *string `field:"optional" json:"bytes" yaml:"bytes"`
 	String *string `field:"optional" json:"string" yaml:"string"`
 }
 
@@ -5723,91 +5712,91 @@ type VirtualServiceSpecHttpFaultDelayPercentage struct {
 }
 
 type VirtualServiceSpecHttpHeaders struct {
-	Request *VirtualServiceSpecHttpHeadersRequest `field:"optional" json:"request" yaml:"request"`
+	Request  *VirtualServiceSpecHttpHeadersRequest  `field:"optional" json:"request" yaml:"request"`
 	Response *VirtualServiceSpecHttpHeadersResponse `field:"optional" json:"response" yaml:"response"`
 }
 
 type VirtualServiceSpecHttpHeadersRequest struct {
-	Add *map[string]*string `field:"optional" json:"add" yaml:"add"`
-	Remove *[]*string `field:"optional" json:"remove" yaml:"remove"`
-	Set *map[string]*string `field:"optional" json:"set" yaml:"set"`
+	Add    *map[string]*string `field:"optional" json:"add" yaml:"add"`
+	Remove *[]*string          `field:"optional" json:"remove" yaml:"remove"`
+	Set    *map[string]*string `field:"optional" json:"set" yaml:"set"`
 }
 
 type VirtualServiceSpecHttpHeadersResponse struct {
-	Add *map[string]*string `field:"optional" json:"add" yaml:"add"`
-	Remove *[]*string `field:"optional" json:"remove" yaml:"remove"`
-	Set *map[string]*string `field:"optional" json:"set" yaml:"set"`
+	Add    *map[string]*string `field:"optional" json:"add" yaml:"add"`
+	Remove *[]*string          `field:"optional" json:"remove" yaml:"remove"`
+	Set    *map[string]*string `field:"optional" json:"set" yaml:"set"`
 }
 
 type VirtualServiceSpecHttpMatch struct {
 	Authority *VirtualServiceSpecHttpMatchAuthority `field:"optional" json:"authority" yaml:"authority"`
 	// Names of gateways where the rule should be applied.
-	Gateways *[]*string `field:"optional" json:"gateways" yaml:"gateways"`
-	Headers *map[string]*VirtualServiceSpecHttpMatchHeaders `field:"optional" json:"headers" yaml:"headers"`
+	Gateways *[]*string                                      `field:"optional" json:"gateways" yaml:"gateways"`
+	Headers  *map[string]*VirtualServiceSpecHttpMatchHeaders `field:"optional" json:"headers" yaml:"headers"`
 	// Flag to specify whether the URI matching should be case-insensitive.
-	IgnoreUriCase *bool `field:"optional" json:"ignoreUriCase" yaml:"ignoreUriCase"`
-	Method *VirtualServiceSpecHttpMatchMethod `field:"optional" json:"method" yaml:"method"`
+	IgnoreUriCase *bool                              `field:"optional" json:"ignoreUriCase" yaml:"ignoreUriCase"`
+	Method        *VirtualServiceSpecHttpMatchMethod `field:"optional" json:"method" yaml:"method"`
 	// The name assigned to a match.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies the ports on the host that is being addressed.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Query parameters for matching.
-	QueryParams *map[string]*VirtualServiceSpecHttpMatchQueryParams `field:"optional" json:"queryParams" yaml:"queryParams"`
-	Scheme *VirtualServiceSpecHttpMatchScheme `field:"optional" json:"scheme" yaml:"scheme"`
-	SourceLabels *map[string]*string `field:"optional" json:"sourceLabels" yaml:"sourceLabels"`
+	QueryParams  *map[string]*VirtualServiceSpecHttpMatchQueryParams `field:"optional" json:"queryParams" yaml:"queryParams"`
+	Scheme       *VirtualServiceSpecHttpMatchScheme                  `field:"optional" json:"scheme" yaml:"scheme"`
+	SourceLabels *map[string]*string                                 `field:"optional" json:"sourceLabels" yaml:"sourceLabels"`
 	// Source namespace constraining the applicability of a rule to workloads in that namespace.
 	SourceNamespace *string `field:"optional" json:"sourceNamespace" yaml:"sourceNamespace"`
 	// The human readable prefix to use when emitting statistics for this route.
-	StatPrefix *string `field:"optional" json:"statPrefix" yaml:"statPrefix"`
-	Uri *VirtualServiceSpecHttpMatchUri `field:"optional" json:"uri" yaml:"uri"`
+	StatPrefix *string                         `field:"optional" json:"statPrefix" yaml:"statPrefix"`
+	Uri        *VirtualServiceSpecHttpMatchUri `field:"optional" json:"uri" yaml:"uri"`
 	// withoutHeader has the same syntax with the header, but has opposite meaning.
 	WithoutHeaders *map[string]*VirtualServiceSpecHttpMatchWithoutHeaders `field:"optional" json:"withoutHeaders" yaml:"withoutHeaders"`
 }
 
 type VirtualServiceSpecHttpMatchAuthority struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 type VirtualServiceSpecHttpMatchHeaders struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 type VirtualServiceSpecHttpMatchMethod struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 type VirtualServiceSpecHttpMatchQueryParams struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 type VirtualServiceSpecHttpMatchScheme struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 type VirtualServiceSpecHttpMatchUri struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 type VirtualServiceSpecHttpMatchWithoutHeaders struct {
-	Exact *string `field:"optional" json:"exact" yaml:"exact"`
+	Exact  *string `field:"optional" json:"exact" yaml:"exact"`
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
@@ -5834,14 +5823,14 @@ type VirtualServiceSpecHttpMirrorPort struct {
 
 // A HTTP rule can either return a direct_response, redirect or forward (default) traffic.
 type VirtualServiceSpecHttpRedirect struct {
-	Authority *string `field:"optional" json:"authority" yaml:"authority"`
+	Authority  *string                                  `field:"optional" json:"authority" yaml:"authority"`
 	DerivePort VirtualServiceSpecHttpRedirectDerivePort `field:"optional" json:"derivePort" yaml:"derivePort"`
 	// On a redirect, overwrite the port portion of the URL with this value.
-	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	Port         *float64 `field:"optional" json:"port" yaml:"port"`
 	RedirectCode *float64 `field:"optional" json:"redirectCode" yaml:"redirectCode"`
 	// On a redirect, overwrite the scheme portion of the URL with this value.
 	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
-	Uri *string `field:"optional" json:"uri" yaml:"uri"`
+	Uri    *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 type VirtualServiceSpecHttpRedirectDerivePort string
@@ -5869,12 +5858,12 @@ type VirtualServiceSpecHttpRetries struct {
 type VirtualServiceSpecHttpRewrite struct {
 	// rewrite the Authority/Host header with this value.
 	Authority *string `field:"optional" json:"authority" yaml:"authority"`
-	Uri *string `field:"optional" json:"uri" yaml:"uri"`
+	Uri       *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 type VirtualServiceSpecHttpRoute struct {
 	Destination *VirtualServiceSpecHttpRouteDestination `field:"optional" json:"destination" yaml:"destination"`
-	Headers *VirtualServiceSpecHttpRouteHeaders `field:"optional" json:"headers" yaml:"headers"`
+	Headers     *VirtualServiceSpecHttpRouteHeaders     `field:"optional" json:"headers" yaml:"headers"`
 	// Weight specifies the relative proportion of traffic to be forwarded to the destination.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
@@ -5894,20 +5883,20 @@ type VirtualServiceSpecHttpRouteDestinationPort struct {
 }
 
 type VirtualServiceSpecHttpRouteHeaders struct {
-	Request *VirtualServiceSpecHttpRouteHeadersRequest `field:"optional" json:"request" yaml:"request"`
+	Request  *VirtualServiceSpecHttpRouteHeadersRequest  `field:"optional" json:"request" yaml:"request"`
 	Response *VirtualServiceSpecHttpRouteHeadersResponse `field:"optional" json:"response" yaml:"response"`
 }
 
 type VirtualServiceSpecHttpRouteHeadersRequest struct {
-	Add *map[string]*string `field:"optional" json:"add" yaml:"add"`
-	Remove *[]*string `field:"optional" json:"remove" yaml:"remove"`
-	Set *map[string]*string `field:"optional" json:"set" yaml:"set"`
+	Add    *map[string]*string `field:"optional" json:"add" yaml:"add"`
+	Remove *[]*string          `field:"optional" json:"remove" yaml:"remove"`
+	Set    *map[string]*string `field:"optional" json:"set" yaml:"set"`
 }
 
 type VirtualServiceSpecHttpRouteHeadersResponse struct {
-	Add *map[string]*string `field:"optional" json:"add" yaml:"add"`
-	Remove *[]*string `field:"optional" json:"remove" yaml:"remove"`
-	Set *map[string]*string `field:"optional" json:"set" yaml:"set"`
+	Add    *map[string]*string `field:"optional" json:"add" yaml:"add"`
+	Remove *[]*string          `field:"optional" json:"remove" yaml:"remove"`
+	Set    *map[string]*string `field:"optional" json:"set" yaml:"set"`
 }
 
 type VirtualServiceSpecTcp struct {
@@ -5922,7 +5911,7 @@ type VirtualServiceSpecTcpMatch struct {
 	// Names of gateways where the rule should be applied.
 	Gateways *[]*string `field:"optional" json:"gateways" yaml:"gateways"`
 	// Specifies the port on the host that is being addressed.
-	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	Port         *float64            `field:"optional" json:"port" yaml:"port"`
 	SourceLabels *map[string]*string `field:"optional" json:"sourceLabels" yaml:"sourceLabels"`
 	// Source namespace constraining the applicability of a rule to workloads in that namespace.
 	SourceNamespace *string `field:"optional" json:"sourceNamespace" yaml:"sourceNamespace"`
@@ -5964,7 +5953,7 @@ type VirtualServiceSpecTlsMatch struct {
 	// Specifies the port on the host that is being addressed.
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// SNI (server name indicator) to match on.
-	SniHosts *[]*string `field:"optional" json:"sniHosts" yaml:"sniHosts"`
+	SniHosts     *[]*string          `field:"optional" json:"sniHosts" yaml:"sniHosts"`
 	SourceLabels *map[string]*string `field:"optional" json:"sourceLabels" yaml:"sourceLabels"`
 	// Source namespace constraining the applicability of a rule to workloads in that namespace.
 	SourceNamespace *string `field:"optional" json:"sourceNamespace" yaml:"sourceNamespace"`
@@ -6101,7 +6090,6 @@ func (j *jsiiProxy_WorkloadEntry) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "WorkloadEntry" API object.
 func NewWorkloadEntry(scope constructs.Construct, id *string, props *WorkloadEntryProps) WorkloadEntry {
@@ -6279,10 +6267,10 @@ type WorkloadEntrySpec struct {
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The locality associated with the endpoint.
 	Locality *string `field:"optional" json:"locality" yaml:"locality"`
-	Network *string `field:"optional" json:"network" yaml:"network"`
+	Network  *string `field:"optional" json:"network" yaml:"network"`
 	// Set of ports associated with the endpoint.
-	Ports *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
-	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
+	Ports          *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
+	ServiceAccount *string              `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// The load balancing weight associated with the endpoint.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
@@ -6398,7 +6386,6 @@ func (j *jsiiProxy_WorkloadEntryV1Beta1) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "WorkloadEntryV1Beta1" API object.
 func NewWorkloadEntryV1Beta1(scope constructs.Construct, id *string, props *WorkloadEntryV1Beta1Props) WorkloadEntryV1Beta1 {
@@ -6576,10 +6563,10 @@ type WorkloadEntryV1Beta1Spec struct {
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The locality associated with the endpoint.
 	Locality *string `field:"optional" json:"locality" yaml:"locality"`
-	Network *string `field:"optional" json:"network" yaml:"network"`
+	Network  *string `field:"optional" json:"network" yaml:"network"`
 	// Set of ports associated with the endpoint.
-	Ports *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
-	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
+	Ports          *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
+	ServiceAccount *string              `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// The load balancing weight associated with the endpoint.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
@@ -6695,7 +6682,6 @@ func (j *jsiiProxy_WorkloadGroup) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "WorkloadGroup" API object.
 func NewWorkloadGroup(scope constructs.Construct, id *string, props *WorkloadGroupProps) WorkloadGroup {
@@ -6879,7 +6865,7 @@ type WorkloadGroupSpec struct {
 // Metadata that will be used for all corresponding `WorkloadEntries`.
 type WorkloadGroupSpecMetadata struct {
 	Annotations *map[string]*string `field:"optional" json:"annotations" yaml:"annotations"`
-	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
+	Labels      *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 }
 
 // `ReadinessProbe` describes the configuration the user must provide for healthchecking on their workload.
@@ -6887,8 +6873,8 @@ type WorkloadGroupSpecProbe struct {
 	// Health is determined by how the command that is executed exited.
 	Exec *WorkloadGroupSpecProbeExec `field:"optional" json:"exec" yaml:"exec"`
 	// Minimum consecutive failures for the probe to be considered failed after having succeeded.
-	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
-	HttpGet *WorkloadGroupSpecProbeHttpGet `field:"optional" json:"httpGet" yaml:"httpGet"`
+	FailureThreshold *float64                       `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
+	HttpGet          *WorkloadGroupSpecProbeHttpGet `field:"optional" json:"httpGet" yaml:"httpGet"`
 	// Number of seconds after the container has started before readiness probes are initiated.
 	InitialDelaySeconds *float64 `field:"optional" json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
 	// How often (in seconds) to perform the probe.
@@ -6915,18 +6901,18 @@ type WorkloadGroupSpecProbeHttpGet struct {
 	// Path to access on the HTTP server.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Port on which the endpoint lives.
-	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
+	Port   *float64 `field:"optional" json:"port" yaml:"port"`
+	Scheme *string  `field:"optional" json:"scheme" yaml:"scheme"`
 }
 
 type WorkloadGroupSpecProbeHttpGetHttpHeaders struct {
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name  *string `field:"optional" json:"name" yaml:"name"`
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Health is determined by if the proxy is able to connect.
 type WorkloadGroupSpecProbeTcpSocket struct {
-	Host *string `field:"optional" json:"host" yaml:"host"`
+	Host *string  `field:"optional" json:"host" yaml:"host"`
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
@@ -6937,10 +6923,10 @@ type WorkloadGroupSpecTemplate struct {
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The locality associated with the endpoint.
 	Locality *string `field:"optional" json:"locality" yaml:"locality"`
-	Network *string `field:"optional" json:"network" yaml:"network"`
+	Network  *string `field:"optional" json:"network" yaml:"network"`
 	// Set of ports associated with the endpoint.
-	Ports *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
-	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
+	Ports          *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
+	ServiceAccount *string              `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// The load balancing weight associated with the endpoint.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
@@ -7056,7 +7042,6 @@ func (j *jsiiProxy_WorkloadGroupV1Beta1) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "WorkloadGroupV1Beta1" API object.
 func NewWorkloadGroupV1Beta1(scope constructs.Construct, id *string, props *WorkloadGroupV1Beta1Props) WorkloadGroupV1Beta1 {
@@ -7218,8 +7203,8 @@ func (w *jsiiProxy_WorkloadGroupV1Beta1) ToString() *string {
 }
 
 type WorkloadGroupV1Beta1Props struct {
-	Metadata *cdk8s.ApiObjectMetadata `field:"optional" json:"metadata" yaml:"metadata"`
-	Spec *WorkloadGroupV1Beta1Spec `field:"optional" json:"spec" yaml:"spec"`
+	Metadata *cdk8s.ApiObjectMetadata  `field:"optional" json:"metadata" yaml:"metadata"`
+	Spec     *WorkloadGroupV1Beta1Spec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 type WorkloadGroupV1Beta1Spec struct {
@@ -7234,7 +7219,7 @@ type WorkloadGroupV1Beta1Spec struct {
 // Metadata that will be used for all corresponding `WorkloadEntries`.
 type WorkloadGroupV1Beta1SpecMetadata struct {
 	Annotations *map[string]*string `field:"optional" json:"annotations" yaml:"annotations"`
-	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
+	Labels      *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 }
 
 // `ReadinessProbe` describes the configuration the user must provide for healthchecking on their workload.
@@ -7242,8 +7227,8 @@ type WorkloadGroupV1Beta1SpecProbe struct {
 	// Health is determined by how the command that is executed exited.
 	Exec *WorkloadGroupV1Beta1SpecProbeExec `field:"optional" json:"exec" yaml:"exec"`
 	// Minimum consecutive failures for the probe to be considered failed after having succeeded.
-	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
-	HttpGet *WorkloadGroupV1Beta1SpecProbeHttpGet `field:"optional" json:"httpGet" yaml:"httpGet"`
+	FailureThreshold *float64                              `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
+	HttpGet          *WorkloadGroupV1Beta1SpecProbeHttpGet `field:"optional" json:"httpGet" yaml:"httpGet"`
 	// Number of seconds after the container has started before readiness probes are initiated.
 	InitialDelaySeconds *float64 `field:"optional" json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
 	// How often (in seconds) to perform the probe.
@@ -7270,18 +7255,18 @@ type WorkloadGroupV1Beta1SpecProbeHttpGet struct {
 	// Path to access on the HTTP server.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Port on which the endpoint lives.
-	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
+	Port   *float64 `field:"optional" json:"port" yaml:"port"`
+	Scheme *string  `field:"optional" json:"scheme" yaml:"scheme"`
 }
 
 type WorkloadGroupV1Beta1SpecProbeHttpGetHttpHeaders struct {
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name  *string `field:"optional" json:"name" yaml:"name"`
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Health is determined by if the proxy is able to connect.
 type WorkloadGroupV1Beta1SpecProbeTcpSocket struct {
-	Host *string `field:"optional" json:"host" yaml:"host"`
+	Host *string  `field:"optional" json:"host" yaml:"host"`
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
@@ -7292,11 +7277,10 @@ type WorkloadGroupV1Beta1SpecTemplate struct {
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The locality associated with the endpoint.
 	Locality *string `field:"optional" json:"locality" yaml:"locality"`
-	Network *string `field:"optional" json:"network" yaml:"network"`
+	Network  *string `field:"optional" json:"network" yaml:"network"`
 	// Set of ports associated with the endpoint.
-	Ports *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
-	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
+	Ports          *map[string]*float64 `field:"optional" json:"ports" yaml:"ports"`
+	ServiceAccount *string              `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// The load balancing weight associated with the endpoint.
 	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
-

@@ -2,12 +2,12 @@
 package extensionsistioio
 
 import (
-	_init_ "example.com/cdk8slibrary/imports/extensionsistioio/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "github.com/coopnorge/cdk8slibrary/imports/extensionsistioio/jsii"
 
-	"example.com/cdk8slibrary/imports/extensionsistioio/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"github.com/coopnorge/cdk8slibrary/imports/extensionsistioio/internal"
 )
 
 type WasmPlugin interface {
@@ -121,7 +121,6 @@ func (j *jsiiProxy_WasmPlugin) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "WasmPlugin" API object.
 func NewWasmPlugin(scope constructs.Construct, id *string, props *WasmPluginProps) WasmPlugin {
@@ -301,14 +300,14 @@ type WasmPluginSpec struct {
 	Phase WasmPluginSpecPhase `field:"optional" json:"phase" yaml:"phase"`
 	// The configuration that will be passed on to the plugin.
 	PluginConfig interface{} `field:"optional" json:"pluginConfig" yaml:"pluginConfig"`
-	PluginName *string `field:"optional" json:"pluginName" yaml:"pluginName"`
+	PluginName   *string     `field:"optional" json:"pluginName" yaml:"pluginName"`
 	// Determines ordering of `WasmPlugins` in the same `phase`.
-	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
+	Priority *float64                `field:"optional" json:"priority" yaml:"priority"`
 	Selector *WasmPluginSpecSelector `field:"optional" json:"selector" yaml:"selector"`
 	// SHA256 checksum that will be used to verify Wasm module or OCI container.
 	Sha256 *string `field:"optional" json:"sha256" yaml:"sha256"`
 	// URL of a Wasm module or OCI container.
-	Url *string `field:"optional" json:"url" yaml:"url"`
+	Url             *string `field:"optional" json:"url" yaml:"url"`
 	VerificationKey *string `field:"optional" json:"verificationKey" yaml:"verificationKey"`
 	// Configuration for a Wasm VM.
 	VmConfig *WasmPluginSpecVmConfig `field:"optional" json:"vmConfig" yaml:"vmConfig"`
@@ -352,7 +351,7 @@ type WasmPluginSpecVmConfig struct {
 type WasmPluginSpecVmConfigEnv struct {
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Value for the environment variable.
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value     *string                            `field:"optional" json:"value" yaml:"value"`
 	ValueFrom WasmPluginSpecVmConfigEnvValueFrom `field:"optional" json:"valueFrom" yaml:"valueFrom"`
 }
 
@@ -364,4 +363,3 @@ const (
 	// HOST.
 	WasmPluginSpecVmConfigEnvValueFrom_HOST WasmPluginSpecVmConfigEnvValueFrom = "HOST"
 )
-

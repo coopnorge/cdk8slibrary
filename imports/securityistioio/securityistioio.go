@@ -2,12 +2,12 @@
 package securityistioio
 
 import (
-	_init_ "example.com/cdk8slibrary/imports/securityistioio/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "github.com/coopnorge/cdk8slibrary/imports/securityistioio/jsii"
 
-	"example.com/cdk8slibrary/imports/securityistioio/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"github.com/coopnorge/cdk8slibrary/imports/securityistioio/internal"
 )
 
 type AuthorizationPolicy interface {
@@ -121,7 +121,6 @@ func (j *jsiiProxy_AuthorizationPolicy) Node() constructs.Node {
 	)
 	return returns
 }
-
 
 // Defines a "AuthorizationPolicy" API object.
 func NewAuthorizationPolicy(scope constructs.Construct, id *string, props *AuthorizationPolicyProps) AuthorizationPolicy {
@@ -513,7 +512,6 @@ func (j *jsiiProxy_PeerAuthentication) Node() constructs.Node {
 	return returns
 }
 
-
 // Defines a "PeerAuthentication" API object.
 func NewPeerAuthentication(scope constructs.Construct, id *string, props *PeerAuthenticationProps) PeerAuthentication {
 	_init_.Initialize()
@@ -845,7 +843,6 @@ func (j *jsiiProxy_RequestAuthentication) Node() constructs.Node {
 	return returns
 }
 
-
 // Defines a "RequestAuthentication" API object.
 func NewRequestAuthentication(scope constructs.Construct, id *string, props *RequestAuthenticationProps) RequestAuthentication {
 	_init_.Initialize()
@@ -1030,8 +1027,8 @@ type RequestAuthenticationSpecJwtRules struct {
 	// Identifies the issuer that issued the JWT.
 	Issuer *string `field:"optional" json:"issuer" yaml:"issuer"`
 	// JSON Web Key Set of public keys to validate signature of the JWT.
-	Jwks *string `field:"optional" json:"jwks" yaml:"jwks"`
-	JwksUri *string `field:"optional" json:"jwksUri" yaml:"jwksUri"`
+	Jwks                  *string `field:"optional" json:"jwks" yaml:"jwks"`
+	JwksUri               *string `field:"optional" json:"jwksUri" yaml:"jwksUri"`
 	OutputPayloadToHeader *string `field:"optional" json:"outputPayloadToHeader" yaml:"outputPayloadToHeader"`
 }
 
@@ -1046,4 +1043,3 @@ type RequestAuthenticationSpecJwtRulesFromHeaders struct {
 type RequestAuthenticationSpecSelector struct {
 	MatchLabels *map[string]*string `field:"optional" json:"matchLabels" yaml:"matchLabels"`
 }
-

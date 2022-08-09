@@ -1,11 +1,11 @@
 package ck8slibrary
 
 import (
-	"example.com/cdk8slibrary/imports/k8s"
-	"example.com/cdk8slibrary/imports/networkingistioio"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"github.com/coopnorge/cdk8slibrary/imports/k8s"
+	"github.com/coopnorge/cdk8slibrary/imports/networkingistioio"
 	"github.com/creasty/defaults"
 )
 
