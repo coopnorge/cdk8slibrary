@@ -1,12 +1,21 @@
 package k8s
 
 import (
+	"log"
 	"reflect"
+	"sync"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+var test sync.Once
+
 func init() {
+	test.Do(inner)
+}
+
+func inner() {
+	log.Println("Registering from lib")
 	_jsii_.RegisterStruct(
 		"k8s.Affinity",
 		reflect.TypeOf((*Affinity)(nil)).Elem(),
