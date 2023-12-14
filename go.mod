@@ -1,6 +1,6 @@
 module github.com/coopnorge/cdk8slibrary
 
-go 1.16
+go 1.20
 
 require (
 	github.com/aws/constructs-go/constructs/v10 v10.1.52
@@ -10,3 +10,5 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	gopkg.in/yaml.v2 v2.4.0
 )
+
+require github.com/Masterminds/semver/v3 v3.1.1 // indirect
